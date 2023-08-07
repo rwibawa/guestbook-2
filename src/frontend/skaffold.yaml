@@ -21,6 +21,10 @@ portForward:
     resourceName: nodejs-guestbook-frontend
     port: 80
     localPort: 4503
+  - resourceType: service
+    resourceName: nodejs-guestbook-mongodb
+    port: 27017
+    localPort: 29000
 profiles:
 # use the cloudbuild profile to build images using Google Cloud Build
 - name: cloudbuild

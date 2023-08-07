@@ -5,10 +5,37 @@ The Guestbook sample demonstrates how to deploy a Kubernetes application with a 
 For details on how to use this sample as a template in Cloud Code, read the documentation for Cloud Code for [VS Code](https://cloud.google.com/code/docs/vscode/quickstart-local-dev?utm_source=ext&utm_medium=partner&utm_campaign=CDR_kri_gcp_cloudcodereadmes_012521&utm_content=-) or [IntelliJ](https://cloud.google.com/code/docs/intellij/quickstart-k8s?utm_source=ext&utm_medium=partner&utm_campaign=CDR_kri_gcp_cloudcodereadmes_012521&utm_content=-).
 
 ### Table of Contents
-* [What's in this sample](#whats-in-this-sample)
-* [Getting Started with VS Code](#getting-started-with-vs-code)
-* [Getting Started with IntelliJ](#getting-started-with-intellij)
-* [Sign up for User Research](#sign-up-for-user-research)
+- [Guestbook with Cloud Code](#guestbook-with-cloud-code)
+    - [Table of Contents](#table-of-contents)
+  - [Persistent Volume](#persistent-volume)
+    - [Setup](#setup)
+  - [What's in this sample](#whats-in-this-sample)
+    - [Kubernetes architecture](#kubernetes-architecture)
+    - [Directory contents](#directory-contents)
+  - [Getting Started with VS Code](#getting-started-with-vs-code)
+    - [Run the app locally with minikube](#run-the-app-locally-with-minikube)
+  - [Getting Started with IntelliJ](#getting-started-with-intellij)
+    - [Run the app locally with minikube](#run-the-app-locally-with-minikube-1)
+      - [Edit run configuration](#edit-run-configuration)
+      - [Run the app on minikube](#run-the-app-on-minikube)
+  - [Sign up for User Research](#sign-up-for-user-research)
+
+---
+## Persistent Volume
+### Setup
+
+```sh
+# apply the persistent volume in Linux
+~/workspace_js/guestbook-2$ kubectl apply -f src/backend/kubernetes-manifests/k8s-mongodb-data.persistent-volume.yaml 
+persistentvolume/mongodb-volume created
+~/workspace_js/guestbook-2$ kubectl apply -f src/backend/kubernetes-manifests/k8s-mongodb-data.persistent-volume-claim.yaml
+
+# delete the persistent volume in Linux
+~/workspace_js/guestbook-2$ kubectl delete -f src/backend/kubernetes-manifests/k8s-mongodb-data.persistent-volume.yaml 
+persistentvolume/mongodb-volume created
+~/workspace_js/guestbook-2$ kubectl delete -f src/backend/kubernetes-manifests/k8s-mongodb-data.persistent-volume-claim.yaml
+
+```
 
 ---
 ## What's in this sample
