@@ -27,3 +27,10 @@ spec:
           image: mongo:4
           ports:
             - containerPort: 27017
+          volumeMounts:
+            - mountPath: /data/db
+              name: mongodb-volume
+      volumes:
+        - name: mongodb-volume
+          persistentVolumeClaim:
+            claimName: mongodb-volume-claims
